@@ -1,6 +1,7 @@
 package main.java.com.model;
 
 import java.util.Objects;
+import java.util.Scanner;
 
 
 
@@ -8,6 +9,7 @@ public class Alumno {
 
 	private String nombre;
 	private String dni;
+	
 	
 	//constructor//
 	public Alumno(String nombre, String dni) {
@@ -17,11 +19,9 @@ public class Alumno {
 	}
 //metodos//
 	
-	/*Añadir un alumno (recibe como parámetro el objeto alumno a insertar). Si el
-	alumno ya existe en el equipo debe saltar una excepción.*/
 	
 	
-
+	
 
 // getter y setter//
 	

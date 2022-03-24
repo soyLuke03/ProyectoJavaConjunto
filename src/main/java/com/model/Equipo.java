@@ -1,18 +1,63 @@
 package main.java.com.model;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
+
+
 
 public class Equipo {
 	
 	private String nombreEquipo;
-	private Collection<Alumno> alumnoColeccion;
+	private Collection<Alumno> alumnoColeccion= new ArrayList<>();
+	
 	
 	//Constructor//
+	
+	
 	public Equipo(String nombreEquipo, Collection<Alumno> alumnoColeccion) {
 		super();
 		this.nombreEquipo = nombreEquipo;
 		this.alumnoColeccion = alumnoColeccion;
+	}
+	/**
+	 * Añadir alumno por parametros de objetos.
+	 * @param alumno
+	 */
+	public void addAlumno(Alumno alumno) {		
+		
+		if (alumnoColeccion.contains(alumno)) {
+			 //exception//
+		}
+		else {
+			alumnoColeccion.add(alumno);
+		}
+	}
+	/**
+	 * Añadir alumno por parametro de builder
+	 * @param nombre
+	 * @param dni
+	 */
+	public void addAlumno(String nombre, String dni) {
+		Alumno alumno= new Alumno(nombre, dni);
+		if (alumnoColeccion.contains(alumno)) {
+			 //exception//
+		}
+		else {
+			alumnoColeccion.add(alumno);
+		}
+	}
+	/*Borrar un alumno (recibe como parámetro el objeto alumno a borrar). Si el
+	alumno no existe en el equipo debe saltar una excepción.*/
+	
+	public void deleteAlumno(Alumno alumno) {
+		if (!alumnoColeccion.contains(alumno)) {
+			//exceptions
+		}else {
+			alumnoColeccion.remove(alumno);
+		}
 	}
 	// getter y setter//
 	
