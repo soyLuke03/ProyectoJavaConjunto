@@ -16,25 +16,49 @@ public class Equipo {
 	
 	//Constructor//
 	
-	
+	/**
+	 * Este <b>BUILDER</b> genera un equipo con todos los datos.
+	 * Si un dato no aparace, lanza una excepción.
+	 * @param nombreEquipo
+	 * @param alumnoColeccion
+	 */
 	public Equipo(String nombreEquipo, Collection<Alumno> alumnoColeccion) {
 		super();
-		this.nombreEquipo = nombreEquipo;
-		this.alumnoColeccion = alumnoColeccion;
+		if (nombreEquipo != null) {
+			this.nombreEquipo = nombreEquipo;
+		}
+		else if (nombreEquipo == null) {
+			throw new EquipoException("[ERROR]Por favor, introduce un nombre de equipo válido");
+		}
+		
+		if (alumnoColeccion != null) {
+			this.alumnoColeccion = alumnoColeccion;
+		}
+		else if (alumnoColeccion == null) {
+			throw new EquipoException("[ERROR]Por favor, introduce un grupo de alumnos válido");
+		}
 	}
+	
+	
 	/**
 	 * AÃ±adir alumno por parametros de objetos.
 	 * @param alumno
 	 */
 	public void addAlumno(Alumno alumno) {		
 		
-		if (alumnoColeccion.contains(alumno)) {
-			 //exception//
+		if (alumno != null) {
+			if (alumnoColeccion.contains(alumno)) {
+				 //exception//
+			}
+			else {
+				alumnoColeccion.add(alumno);
+			}
 		}
 		else {
-			alumnoColeccion.add(alumno);
+			throw new EquipoException("[ERROR]Por favor, introduce un grupo de alumnos válido");
 		}
 	}
+	
 	/**
 	 * AÃ±adir alumno por parametro de builder
 	 * @param nombre
@@ -42,23 +66,58 @@ public class Equipo {
 	 */
 	public void addAlumno(String nombre, String dni) {
 		Alumno alumno= new Alumno(nombre, dni);
-		if (alumnoColeccion.contains(alumno)) {
-			 //exception//
+		if (this.alumnoColeccion != null) {
+			if (alumnoColeccion.contains(alumno)) {
+				 throw new EquipoException("[ERROR] Imposible añadir al alumno");
+			}
+			else {
+				alumnoColeccion.add(alumno);
+			}
 		}
 		else {
-			alumnoColeccion.add(alumno);
+			 throw new EquipoException("[ERROR] Imposible añadir al alumno");
 		}
 	}
-	/*Borrar un alumno (recibe como parÃ¡metro el objeto alumno a borrar). Si el
-	alumno no existe en el equipo debe saltar una excepciÃ³n.*/
+	/**
+	 * Borrar un alumno <b>EXISTENTE</b> del equipo.
+	 * @param alumno
+	 */
 	
 	public void deleteAlumno(Alumno alumno) {
 		if (!alumnoColeccion.contains(alumno)) {
-			//exceptions
+			throw new EquipoException("[ERROR] No se puede borrar el alumno.");
 		}else {
 			alumnoColeccion.remove(alumno);
 		}
 	}
+	
+	/**
+	 * Metodo para buscar un alumno en un equipo.
+	 * @param alumno
+	 * @throws Exception
+	 * Devuelve null si existe pero no esta en el equipo.
+	 */
+	   public void perteneceEquipo(Alumno alumno) throws Exception {
+	        Alumno resultado=null;
+	        if(alumno != null) {
+	            if(alumnoColeccion.contains(alumno)) {
+	                resultado= alumno;
+	            }
+	        }
+	        throw new Exception("Se ha producido una Excepcion inesperada, el campo Alumno no puede estar a null");
+	    }
+	   
+	   
+	    public void mostrarListaEquipo(Collection<Alumno> alumno) throws Exception {
+	        if (alumno != null) {
+	            alumno.forEach(System.out::println);
+	        }else {
+	            throw new Exception("Se ha producido una excepción inesperada");
+	        }
+	    }
+
+	
+	
 	// getter y setter//
 	
 	public String getNombreEquipo() {

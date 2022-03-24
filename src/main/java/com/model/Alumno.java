@@ -14,8 +14,20 @@ public class Alumno {
 	//constructor//
 	public Alumno(String nombre, String dni) {
 		super();
-		this.nombre = nombre;
-		this.dni = dni;
+		if (nombre != null) {
+			this.nombre = nombre;
+		}
+		else if (nombre == null) {
+			throw new EquipoException("[ERROR]Por favor, introduce un nombre válido");
+		}
+		
+		
+		if (dni != null) {
+			this.dni = dni;
+		}
+		else if (dni == null) {
+			throw new EquipoException("[ERROR]Por favor, introduce un DNI válido");
+		}
 	}
 //metodos//
 	
@@ -68,7 +80,7 @@ public class Alumno {
 
 	@Override
 	public String toString() {
-		return nombre + " " +dni;
+		return "[Nombre: " + nombre +"] [DNI: " +dni+"]";
 	}
 	
 	
