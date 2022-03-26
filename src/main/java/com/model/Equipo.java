@@ -137,15 +137,21 @@ public class Equipo {
 	    el otro equipo con el que se quiere unir. Devuelve un equipo formado por los
 	    alumnos de ambos equipos*/
 	    
-	    public Equipo unionEquipos(Equipo otroEquipo) {
-	    	Equipo nuevoEquipo = null;
+	    public Equipo unionEquipos(Equipo otroEquipo) throws Exception {
+	    	Equipo nuevo = new Equipo();
+	    	if (otroEquipo!=null) {
 	    	
-	    	
-	    	
-	    	return nuevoEquipo;
+	    	for(Alumno a : this.alumnoColeccion)
+	    		nuevo.addAlumno(a);    		
+	    	}else {
+	    		throw new Exception("Error se ha producido una excepcion inesperada");
+	    	}
+	    	    	
+	    	return nuevo;
 	    }
 	   
 	
+	    
 	// getter y setter//
 	
 	public String getNombreEquipo() {
