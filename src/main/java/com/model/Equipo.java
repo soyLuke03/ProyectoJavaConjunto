@@ -39,6 +39,9 @@ public class Equipo {
 		}
 	}
 	
+	public Equipo() {
+		
+	}
 	
 	/**
 	 * AÃ±adir alumno por parametros de objetos.
@@ -115,8 +118,33 @@ public class Equipo {
 	            throw new Exception("Se ha producido una excepción inesperada");
 	        }
 	    }
-
+	    
+	    /**
+	     * Método para imprimir un ArrayList 
+	     * usando un bucle for
+	     *
+	     * @return
+	     */
 	
+	    public void imprimirListaEquipo(ArrayList<Alumno> alumno) {
+	    	for (int i=0; i<alumno.size();i++) {
+	    		System.out.println(alumno.get(i).getNombre());
+	    		System.out.println(alumno.get(i).getDni());
+	    	}
+	    }
+	    
+	   /* Unión de equipos. El método lo llamará un equipo y se le pasará por parámetro
+	    el otro equipo con el que se quiere unir. Devuelve un equipo formado por los
+	    alumnos de ambos equipos*/
+	    
+	    public Equipo unionEquipos(Equipo otroEquipo) {
+	    	Equipo nuevoEquipo = null;
+	    	
+	    	
+	    	
+	    	return nuevoEquipo;
+	    }
+	   
 	
 	// getter y setter//
 	
