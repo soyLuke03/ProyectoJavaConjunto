@@ -18,7 +18,7 @@ public class Alumno {
 			this.nombre = nombre;
 		}
 		else if (nombre == null) {
-			throw new EquipoException("[ERROR]Por favor, introduce un nombre válido");
+			throw new EquipoException("[ERROR]Por favor, introduce un nombre vï¿½lido");
 		}
 		
 		
@@ -26,10 +26,10 @@ public class Alumno {
 			this.dni = dni;
 		}
 		else if (dni == null) {
-			throw new EquipoException("[ERROR]Por favor, introduce un DNI válido");
+			throw new EquipoException("[ERROR]Por favor, introduce un DNI vï¿½lido");
 		}
 	}
-//metodos//
+//mÃ©todos//
 	
 	
 	

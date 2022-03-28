@@ -2,9 +2,9 @@ package main.java.com.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
-import java.util.Scanner;
+import java.util.Set;
 
 
 
@@ -18,7 +18,7 @@ public class Equipo {
 	
 	/**
 	 * Este <b>BUILDER</b> genera un equipo con todos los datos.
-	 * Si un dato no aparace, lanza una excepción.
+	 * Si un dato no aparace, lanza una excepciï¿½n.
 	 * @param nombreEquipo
 	 * @param alumnoColeccion
 	 */
@@ -28,14 +28,14 @@ public class Equipo {
 			this.nombreEquipo = nombreEquipo;
 		}
 		else if (nombreEquipo == null) {
-			throw new EquipoException("[ERROR]Por favor, introduce un nombre de equipo válido");
+			throw new EquipoException("[ERROR]Por favor, introduce un nombre de equipo vï¿½lido");
 		}
 		
 		if (alumnoColeccion != null) {
 			this.alumnoColeccion = alumnoColeccion;
 		}
 		else if (alumnoColeccion == null) {
-			throw new EquipoException("[ERROR]Por favor, introduce un grupo de alumnos válido");
+			throw new EquipoException("[ERROR]Por favor, introduce un grupo de alumnos vï¿½lido");
 		}
 	}
 	
@@ -58,7 +58,7 @@ public class Equipo {
 			}
 		}
 		else {
-			throw new EquipoException("[ERROR]Por favor, introduce un grupo de alumnos válido");
+			throw new EquipoException("[ERROR]Por favor, introduce un grupo de alumnos vï¿½lido");
 		}
 	}
 	
@@ -71,14 +71,14 @@ public class Equipo {
 		Alumno alumno= new Alumno(nombre, dni);
 		if (this.alumnoColeccion != null) {
 			if (alumnoColeccion.contains(alumno)) {
-				 throw new EquipoException("[ERROR] Imposible añadir al alumno");
+				 throw new EquipoException("[ERROR] Imposible aï¿½adir al alumno");
 			}
 			else {
 				alumnoColeccion.add(alumno);
 			}
 		}
 		else {
-			 throw new EquipoException("[ERROR] Imposible añadir al alumno");
+			 throw new EquipoException("[ERROR] Imposible aï¿½adir al alumno");
 		}
 	}
 	/**
@@ -107,7 +107,7 @@ public class Equipo {
 	                resultado= alumno;
 	            }
 	        }
-	        throw new Exception("Se ha producido una Excepcion inesperada, el campo Alumno no puede estar a null");
+	        throw new EquipoException("Se ha producido una Excepcion inesperada, el campo Alumno no puede estar a null");
 	    }
 	   
 	   
@@ -115,12 +115,12 @@ public class Equipo {
 	        if (alumno != null) {
 	            alumno.forEach(System.out::println);
 	        }else {
-	            throw new Exception("Se ha producido una excepción inesperada");
+	            throw new EquipoException("Se ha producido una excepciï¿½n inesperada");
 	        }
 	    }
 	    
 	    /**
-	     * Método para imprimir un ArrayList 
+	     * Mï¿½todo para imprimir un ArrayList 
 	     * usando un bucle for
 	     *
 	     * @return
@@ -133,23 +133,53 @@ public class Equipo {
 	    	}
 	    }
 	    
-	   /* Unión de equipos. El método lo llamará un equipo y se le pasará por parámetro
+	   /* Uniï¿½n de equipos. El mï¿½todo lo llamarï¿½ un equipo y se le pasarï¿½ por parï¿½metro
 	    el otro equipo con el que se quiere unir. Devuelve un equipo formado por los
 	    alumnos de ambos equipos*/
+	    /**
+	     * MÃ©todo para unir dos equipos, se crea un equipo diferente, una 
+	     * nueva collecion y se aÃ±aden los elementos de las dos listas,
+	     * al ser una collections Hashset no nos ingresa los repetidos.
+	     * posteriormente se aÃ±ade al equipo nuevo, la coleccion.
+	     * @param otroEquipo
+	     * @return
+	     * @throws Exception
+	     */
 	    
-	    public Equipo unionEquipos(Equipo otroEquipo) throws Exception {
+	    
+	    public Equipo unionEquipos(Equipo otroEquipo) throws EquipoException {
 	    	Equipo nuevo = new Equipo();
+	    	
 	    	if (otroEquipo!=null) {
 	    	
-	    	for(Alumno a : this.alumnoColeccion)
-	    		nuevo.addAlumno(a);    		
+	    	Set<Alumno> nuevoEquipo= new HashSet<>(nuevo.alumnoColeccion);
+	    	
+	    	
+	    	nuevoEquipo.addAll(alumnoColeccion);
+	    	nuevoEquipo.addAll(otroEquipo.alumnoColeccion);
+	    	
+	    	nuevo.setAlumnoColeccion(nuevoEquipo);
+	    	
 	    	}else {
-	    		throw new Exception("Error se ha producido una excepcion inesperada");
+	    		throw new EquipoException("Error se ha producido una excepcion inesperada");
 	    	}
 	    	    	
 	    	return nuevo;
 	    }
 	   
+	    public Equipo interseccionDeEquipos(Equipo otroEquipo) {
+	    	Equipo nuevoEquipo= new Equipo();
+	    	
+	    	if(otroEquipo!= null) {
+	    		Set<Alumno> nuevaLista = new HashSet<>();
+	    		
+	    		for (int i=0; i<this.alumnoColeccion.size(); i++) {
+	    			
+	    		}
+	    	}
+	    	
+	    	return nuevoEquipo;
+	    }
 	
 	    
 	// getter y setter//
