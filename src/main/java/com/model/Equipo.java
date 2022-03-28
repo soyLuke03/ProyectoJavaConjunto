@@ -128,8 +128,7 @@ public class Equipo {
 	
 	    public void imprimirListaEquipo(ArrayList<Alumno> alumno) {
 	    	for (int i=0; i<alumno.size();i++) {
-	    		System.out.println(alumno.get(i).getNombre());
-	    		System.out.println(alumno.get(i).getDni());
+	    		System.out.println(alumno.get(i).getNombre()+" " + alumno.get(i).getDni());
 	    	}
 	    }
 	    
