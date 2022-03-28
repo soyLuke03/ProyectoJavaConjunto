@@ -14,11 +14,11 @@ public class MainApp {
 
 		try {
 		Collection<Alumno> a1 = new ArrayList<Alumno>();
-		List<Alumno> a2 = new ArrayList<Alumno>();
+		ArrayList<Alumno> a2 = new ArrayList<Alumno>();
 		
 		
 //		Equipo madrid = new Equipo("Madrid", null);
-		Equipo madrid = new Equipo("Madrid", a1);
+		Equipo madrid = new Equipo("Madrid", a2);
 		
 		madrid.addAlumno("Pepe", "1");
 		madrid.addAlumno("Juan", "555");
@@ -28,6 +28,8 @@ public class MainApp {
 //		madrid.addAlumno("joselu", null);
 		
 			madrid.mostrarListaEquipo(a1);
+			
+			madrid.imprimirListaEquipo(a2);
 			
 		} catch (Exception e) {
 			System.out.println(e);
