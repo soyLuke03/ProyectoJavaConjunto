@@ -50,7 +50,7 @@ class EquipoTest {
 		Equipo e2 =new Equipo();
 		
 		try {
-			assertTrue(e1.unionEquipos(e2).getAlumnoColeccion().size()==0);
+			assertTrue(e1.unionEquipos(e2).size()==0);
 			
 		}catch (EquipoException exception) {
 			assert(false);
@@ -73,7 +73,7 @@ class EquipoTest {
 		equipo2.addAlumno(alumno2);
 		equipo2.addAlumno(alumno3);
 		try {
-			assertTrue(equipo1.unionEquipos(equipo2).getAlumnoColeccion().size()==3);
+			assertTrue(equipo1.unionEquipos(equipo2).size()==3);
 			
 			
 		}catch (EquipoException exception) {
@@ -83,5 +83,30 @@ class EquipoTest {
 		
 		
 	}
-	
+	@Test
+	void testInterseccion() {
+		Alumno alumno1= new Alumno("Luque", "15");
+		Alumno alumno2= new Alumno("Vicente", "154588566x");
+		Alumno alumno3= new Alumno("Luque", "15");
+		Alumno alumno4= new Alumno("antonio", "15");
+		
+		
+		Equipo equipo1 = new Equipo();
+		equipo1.addAlumno(alumno1);
+		equipo1.addAlumno(alumno4);
+		
+		Equipo equipo2 = new Equipo();
+		equipo2.addAlumno(alumno2);
+		equipo2.addAlumno(alumno3);
+		try {
+			assertTrue(equipo1.interseccionDeEquipos(equipo2).size()==1);
+			
+			
+		}catch (EquipoException exception) {
+			assert(false);
+		}
+		
+		
+		
+	}
 }

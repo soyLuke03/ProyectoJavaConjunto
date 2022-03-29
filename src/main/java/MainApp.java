@@ -17,12 +17,12 @@ public class MainApp {
 		ArrayList<Alumno> a2 = new ArrayList<Alumno>();
 		
 		
-<<<<<<< HEAD
+
 		Equipo atmadrid = new Equipo("Madrid", a1);
-=======
+
 		
 		Equipo atleti = new Equipo("Atleti", a1);
->>>>>>> 901b7bc78f8f1f2c67d8d388a84ca5c5c494a8f1
+
 		Equipo madrid = new Equipo("Madrid", a2);
 		
 		atleti.addAlumno("Joze", "12343");
