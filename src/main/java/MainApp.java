@@ -17,19 +17,20 @@ public class MainApp {
 		ArrayList<Alumno> a2 = new ArrayList<Alumno>();
 		
 		
-//		Equipo madrid = new Equipo("Madrid", null);
+		Equipo atmadrid = new Equipo("Madrid", a1);
 		Equipo madrid = new Equipo("Madrid", a2);
 		
 		madrid.addAlumno("Pepe", "1");
-		madrid.addAlumno("Juan", "555");
+		madrid.addAlumno("rodolfo", "555");
 		madrid.addAlumno("Vicente", "999");
-//		madrid.addAlumno(null);
-//		madrid.addAlumno(null, "asd2");
-//		madrid.addAlumno("joselu", null);
+	atmadrid.addAlumno("Pepe", "1");
+	atmadrid.addAlumno("rodolfo", "555");
+	atmadrid.addAlumno("joselu", "585");
 		
-			madrid.mostrarListaEquipo(a1);
+			//madrid.mostrarListaEquipo(a1);
+			System.out.println(madrid.interseccionDeEquipos(atmadrid));
 			
-			madrid.imprimirListaEquipo(a2);
+			//madrid.imprimirListaEquipo(a2);
 			
 		} catch (Exception e) {
 			System.out.println(e);

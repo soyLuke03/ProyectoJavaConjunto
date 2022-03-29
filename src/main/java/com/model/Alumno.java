@@ -70,7 +70,7 @@ public class Alumno {
 		Alumno other = (Alumno) obj;
 		
 		if(obj != null) {
-			if (this.dni.equalsIgnoreCase(other.getDni()))
+			if (this.dni.equalsIgnoreCase(other.getDni())&&this.nombre.equalsIgnoreCase(other.getNombre()))
 				sonIguales = true;
 			
 			}

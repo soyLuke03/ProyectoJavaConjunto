@@ -3,6 +3,7 @@ package main.java.com.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -165,19 +166,43 @@ public class Equipo {
 	    	    	
 	    	return nuevo;
 	    }
+	    /**
+	     * Método interseccion de equipos, compara las listas de los dos equipos
+	     * y devuelve solamente una nueva coleccion con los elementos repetidos en las dos listas.
+	     * @param otroEquipo
+	     * @return
+	     */
 	   
-	    public Equipo interseccionDeEquipos(Equipo otroEquipo) {
-	    	Equipo nuevoEquipo= new Equipo();
+	    public Collection<Alumno> interseccionDeEquipos(Equipo otroEquipo) {
+	    	Equipo nuevoEquipo= new Equipo("LuqueTeam", new ArrayList<>());
+
+	    	List<Alumno> alumnos = (List<Alumno>) this.alumnoColeccion;
+	    	
+	    	/*for(Alumno al: this.alumnoColeccion) {
+	    		al
+	    	}*/
+	    	
 	    	
 	    	if(otroEquipo!= null) {
-	    		Set<Alumno> nuevaLista = new HashSet<>();
+	    		List<Alumno> interSet = new ArrayList<>();
 	    		
 	    		for (int i=0; i<this.alumnoColeccion.size(); i++) {
+	    			if(otroEquipo.alumnoColeccion.contains(alumnos.get(i))) {
+	    				interSet.add(alumnos.get(i));
+	    				
+	    				
+	    				
+	    				
+	    			}nuevoEquipo.setAlumnoColeccion(interSet);
+	    			
+	    			
+
 	    			
 	    		}
+	    	}else {
+	    		throw new EquipoException("Se ha producido una excepcion");
 	    	}
-	    	
-	    	return nuevoEquipo;
+	    	return nuevoEquipo.getAlumnoColeccion();
 	    }
 	
 	    

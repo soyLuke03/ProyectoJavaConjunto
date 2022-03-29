@@ -45,8 +45,6 @@ class EquipoTest {
 	
 	@Test
 	 void TestUnionEquiposVacios() throws EquipoException  {
-	
-		
 		
 		Equipo e1 =new Equipo();
 		Equipo e2 =new Equipo();
