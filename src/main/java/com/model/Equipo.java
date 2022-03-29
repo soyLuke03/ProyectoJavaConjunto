@@ -147,7 +147,7 @@ public class Equipo {
 	     */
 	    
 	    
-	    public Equipo unionEquipos(Equipo otroEquipo) throws EquipoException {
+	    public Set<Alumno> unionEquipos(Equipo otroEquipo) throws EquipoException {
 	    	Equipo nuevo = new Equipo();
 	    	
 	    	if (otroEquipo!=null) {
@@ -160,11 +160,10 @@ public class Equipo {
 	    	
 	    	nuevo.setAlumnoColeccion(nuevoEquipo);
 	    	
+	    	return nuevoEquipo;
 	    	}else {
 	    		throw new EquipoException("Error se ha producido una excepcion inesperada");
 	    	}
-	    	    	
-	    	return nuevo;
 	    }
 	    /**
 	     * Método interseccion de equipos, compara las listas de los dos equipos
