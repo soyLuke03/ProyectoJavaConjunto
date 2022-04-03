@@ -1,5 +1,6 @@
 package main.java.com.model.Ejercicio4.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +23,31 @@ public class Historial {
 			webs.add(pagina);
 			esPrimera=false;
 			this.contador++;
+		}else {
+			
+			
+			
 		}
 			
 				
 				
 			}
+		
+		/**
+		 * 
+		 * @param historial
+		 */
+		public void eliminarHistorialCompleto(List<PaginaWeb> historial) {
+			historial.clear();
+		}
+		/**
+		 * 
+		 * @param historial
+		 * @param dia
+		 */
+		public void eliminarHistorialDeUnDia(List<PaginaWeb> historial, LocalDate dia) {
+			historial.remove(dia);
+		}
 		
 	}
 
