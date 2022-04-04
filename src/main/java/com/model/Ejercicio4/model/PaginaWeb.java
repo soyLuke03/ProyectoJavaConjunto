@@ -10,8 +10,8 @@ public class PaginaWeb implements Comparable<PaginaWeb> {
 	
 	
 	public  PaginaWeb(String url, LocalDateTime horaVisita) {
-		url= this.url;
-		horaVisita= this.fechaVisita;
+		this.url= url;
+		 this.fechaVisita=horaVisita;
 		
 	}
 

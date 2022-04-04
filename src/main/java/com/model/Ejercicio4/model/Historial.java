@@ -5,8 +5,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Historial {
+import main.java.com.model.EquipoException;
 
+public class Historial {
+	
+	private Integer numeroPaginas;
 	List<PaginaWeb> webs = new ArrayList<>();
 
 	
@@ -14,29 +17,42 @@ public class Historial {
 		listawebs=this.webs;
 	}
 	
+	
+	public void annadirWebsSinComparar(PaginaWeb pagina) {
+		webs.add(pagina);
+	}
+	/**
+	 * Método para añadir una web al historial, esta se añadirá si la fecha es superior a la ultima web añadida.
+	 * @param nombre
+	 * @param horaVisita
+	 */
+		public void addWeb( PaginaWeb pagina) {
 
-		public void addWeb( String nombre, LocalDateTime horaVisita) {
-
-			PaginaWeb pagina = new PaginaWeb(nombre, horaVisita);
-		
-		if(webs.get(webs.size()-1).getFechaQueSeCreo()!=null && pagina.getFechaQueSeCreo().isBefore(webs.get(webs.size()-1).getFechaQueSeCreo())) {
+		if(webs.isEmpty())	{
+			webs.add(pagina);
+		}else if(webs.get(webs.size()-1).getFechaQueSeCreo()!=null && pagina.getFechaQueSeCreo().isAfter(webs.get(webs.size()-1).getFechaQueSeCreo())) {
 			webs.add(pagina);			
 		}else {
-			throw new HistorialExceptions("Se ha producido unaexcepcion inesperada");
-		}
-		
-		
-
-			
-				
+			throw new HistorialExceptions("Se ha producido una excepcion inesperada");
+		}				
 				
 			}
 
-		
-		
+		/**
+		 * Método para consultar el historial completo, nos devolverá el historial completo.
+		 * @param historial
+		 * @throws Exception
+		 */
+		public void consultarHistorialCompleto(ArrayList<PaginaWeb> historial) throws Exception {
+	        if (historial != null) {
+	            historial.forEach(System.out::println);
+	        }else {
+	            throw new HistorialExceptions("Se ha producido una excepcion inesperada");
+	        }
+	    }
 		 
 		/**
-		 * 
+		 * Método para eliminar el historial completo, utilizamos la funcion clear para limpiarlo completamente.
 		 * @param historial
 		 */
 		public void eliminarHistorialCompleto(List<PaginaWeb> historial) {
@@ -45,7 +61,7 @@ public class Historial {
 		
 		
 		/**
-		 * 
+		 * Método para eliminar el historial de un día.
 		 * @param historial
 		 * @param dia
 		 */
@@ -60,6 +76,14 @@ public class Historial {
 			
 			historial.removeAll(historialAeliminar);
 			
+		}
+
+		public Integer getNumeroPaginas() {
+			return webs.size();
+		}
+
+		public void setNumeroPaginas(Integer numeroPaginas) {
+			this.numeroPaginas = numeroPaginas;
 		}
 		
 	}
