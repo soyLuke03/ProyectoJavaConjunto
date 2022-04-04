@@ -49,5 +49,11 @@ public class PaginaWeb implements Comparable<PaginaWeb> {
 		}
 		return resultado;
 	}
+
+
+	@Override
+	public String toString() {
+		return "PaginaWeb [url=" + url + ", fechaVisita=" + fechaVisita + "]";
+	}
 	
 }
