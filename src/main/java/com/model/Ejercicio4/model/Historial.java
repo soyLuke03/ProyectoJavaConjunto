@@ -8,7 +8,7 @@ import java.util.List;
 public class Historial {
 
 	List<PaginaWeb> webs = new ArrayList<>();
-	private Integer contador=0;
+
 	
 	public Historial(List<PaginaWeb> listawebs) {
 		listawebs=this.webs;
@@ -16,23 +16,14 @@ public class Historial {
 	
 
 		public void addWeb( String nombre, LocalDateTime horaVisita) {
-			boolean esPrimera =true;
-			
-		PaginaWeb pagina = new PaginaWeb(nombre, horaVisita);
-		if(esPrimera) {
-			webs.add(pagina);
-			esPrimera=false;
-			this.contador++;
-		}else {
-			
-			
-			
-		}
-			
-				
-				
-			}
+			PaginaWeb pagina = new PaginaWeb(nombre, horaVisita);
 		
+		if(pagina.getFechaQueSeCreo().isBefore(webs.get(webs.size()-1).getFechaQueSeCreo())&& webs.get(webs.size()-1).getFechaQueSeCreo()!=null) {
+			webs.add(pagina);			
+		}
+		
+		}
+		 
 		/**
 		 * 
 		 * @param historial
