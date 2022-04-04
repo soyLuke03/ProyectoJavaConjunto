@@ -36,10 +36,11 @@ public class MainApp {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
-		List<PaginaWeb> webs = new ArrayList<>();
+		ArrayList<PaginaWeb> webs = new ArrayList<>();
 		Historial historial = new Historial(webs);
+		
 		
 		int opciones=0;
 		
@@ -60,7 +61,7 @@ public class MainApp {
 		else if (opciones==2) {
 			System.out.println("Consultando historial completo: ");
 			
-			historial.consultarHistorialCompleto(webs);
+			System.out.println(historial.consultarHistorialCompleto(webs));
 		}
 		
 		else if (opciones==3) {

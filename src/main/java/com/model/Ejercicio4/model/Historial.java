@@ -1,11 +1,8 @@
 package main.java.com.model.Ejercicio4.model;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import main.java.com.model.EquipoException;
 
 public class Historial {
 	
@@ -14,7 +11,7 @@ public class Historial {
 
 	
 	public Historial(List<PaginaWeb> listawebs) {
-		listawebs=this.webs;
+		this.webs=listawebs;
 	}
 	
 	
@@ -33,7 +30,7 @@ public class Historial {
 		}else if(webs.get(webs.size()-1).getFechaQueSeCreo()!=null && pagina.getFechaQueSeCreo().isAfter(webs.get(webs.size()-1).getFechaQueSeCreo())) {
 			webs.add(pagina);			
 		}else {
-			throw new HistorialExceptions("Se ha producido una excepcion inesperada");
+			throw new HistorialException("Se ha producido una excepcion inesperada");
 		}				
 				
 			}
@@ -41,13 +38,14 @@ public class Historial {
 		/**
 		 * Método para consultar el historial completo, nos devolverá el historial completo.
 		 * @param historial
+		 * @return 
 		 * @throws Exception
 		 */
-		public void consultarHistorialCompleto(ArrayList<PaginaWeb> historial) throws Exception {
+		public ArrayList<PaginaWeb> consultarHistorialCompleto(ArrayList<PaginaWeb> historial) throws Exception {
 	        if (historial != null) {
-	            historial.forEach(System.out::println);
+	           return historial;
 	        }else {
-	            throw new HistorialExceptions("Se ha producido una excepcion inesperada");
+	            throw new HistorialException("Se ha producido una excepcion inesperada");
 	        }
 	    }
 		 
@@ -84,6 +82,12 @@ public class Historial {
 
 		public void setNumeroPaginas(Integer numeroPaginas) {
 			this.numeroPaginas = numeroPaginas;
+		}
+
+
+		@Override
+		public String toString() {
+			return "Historial [numeroPaginas=" + numeroPaginas + ", webs=" + webs + "]";
 		}
 		
 	}
