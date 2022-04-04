@@ -16,18 +16,10 @@ public class Historial {
 	
 
 		public void addWeb( String nombre, LocalDateTime horaVisita) {
-			boolean esPrimera =true;
+
 			
 		PaginaWeb pagina = new PaginaWeb(nombre, horaVisita);
-		if(esPrimera) {
-			webs.add(pagina);
-			esPrimera=false;
-			this.contador++;
-		}else {
-			
-			
-			
-		}
+
 			
 				
 				
@@ -40,13 +32,24 @@ public class Historial {
 		public void eliminarHistorialCompleto(List<PaginaWeb> historial) {
 			historial.clear();
 		}
+		
+		
 		/**
 		 * 
 		 * @param historial
 		 * @param dia
 		 */
-		public void eliminarHistorialDeUnDia(List<PaginaWeb> historial, LocalDate dia) {
-			historial.remove(dia);
+		public void eliminarHistorialDeUnDia(List<PaginaWeb> historial, LocalDateTime dia) {
+			List<PaginaWeb> historialAeliminar = new ArrayList<>();
+			
+			for (int i = 0; i<historial.size();i++) {
+				if (historial.get(i).getFechaQueSeCreo() == dia) {
+					historialAeliminar.add(historial.get(i));
+				}
+			}
+			
+			historial.removeAll(historialAeliminar);
+			
 		}
 		
 	}
