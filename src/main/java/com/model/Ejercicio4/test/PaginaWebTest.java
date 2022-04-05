@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import main.java.com.model.Ejercicio4.model.Historial;
-import main.java.com.model.Ejercicio4.model.HistorialException;
+import main.java.com.model.Ejercicio4.model.HistorialExceptions;
 import main.java.com.model.Ejercicio4.model.PaginaWeb;
 
 class PaginaWebTest {
@@ -50,7 +50,7 @@ class PaginaWebTest {
 		
 		assertFalse(false);
 		
-		}catch (HistorialException exception) {
+		}catch (HistorialExceptions exception) {
 			assertTrue(true);
 			
 		}

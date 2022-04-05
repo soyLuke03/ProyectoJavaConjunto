@@ -30,7 +30,7 @@ public class Historial {
 		}else if(webs.get(webs.size()-1).getFechaQueSeCreo()!=null && pagina.getFechaQueSeCreo().isAfter(webs.get(webs.size()-1).getFechaQueSeCreo())) {
 			webs.add(pagina);			
 		}else {
-			throw new HistorialException("Se ha producido una excepcion inesperada");
+			throw new HistorialExceptions("Se ha producido una excepcion inesperada");
 		}				
 				
 			}
@@ -45,7 +45,7 @@ public class Historial {
 	        if (historial != null) {
 	           return historial;
 	        }else {
-	            throw new HistorialException("Se ha producido una excepcion inesperada");
+	            throw new HistorialExceptions("Se ha producido una excepcion inesperada");
 	        }
 	    }
 		 
